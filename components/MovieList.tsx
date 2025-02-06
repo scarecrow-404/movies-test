@@ -18,7 +18,7 @@ export default function MovieList({ title, category }: MovieListProps) {
     const fetchMovies = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEST_URL}/api/movies/${category}`
+          `${process.env.NEXT_PUBLIC_API_URL}/api/movies/${category}`
         );
         const data = await response.json();
         setMovies(data);
