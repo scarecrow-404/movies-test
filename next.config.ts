@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-
+require("dotenv").config();
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -12,6 +12,9 @@ const nextConfig: NextConfig = {
   },
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  env: {
+    apiUrl: process.env.NEXT_PUBLIC_API_URL,
   },
 };
 

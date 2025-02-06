@@ -17,8 +17,14 @@ export default function MovieList({ title, category }: MovieListProps) {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
+        if (category === "popular") {
+          const response = await fetch(`${process.env.apiUrl}/api/movies`);
+          const data = await response.json();
+          setMovies(data);
+          return;
+        }
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/movies/${category}`
+          `${process.env.apiUrl}/api/movies/${category}`
         );
         const data = await response.json();
         setMovies(data);
